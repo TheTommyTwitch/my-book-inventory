@@ -3,16 +3,25 @@ var express = require('express'),
   mongoose = require('mongoose'),
   Article = mongoose.model('Article');
 
-module.exports = function (app) {
+module.exports = function(app) {
   app.use('/', router);
+  app.use('/api', router);
 };
 
-router.get('/', function (req, res, next) {
-  Article.find(function (err, articles) {
-    if (err) return next(err);
-    res.render('index', {
-      title: 'Generator-Express MVC',
-      articles: articles
-    });
+router.use(function(req, res, next) {
+  console.log('Something is happening');
+  next();
+});
+
+router.get('/', function(req, res) {
+  res.json({
+    message: 'asdf!'
   });
 });
+
+router.route('/api')
+  .get(function(req, res) {
+    res.json({
+      message: 'api plz!'
+    });
+  });
