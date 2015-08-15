@@ -14,16 +14,9 @@ router.use(function(req, res, next) {
 
 router.get('/', function(req, res) {
   res.json({
-    message: 'asdf!'
+    message: 'Home Page!'
   });
 });
-
-router.route('/api')
-  .get(function(req, res) {
-    res.json({
-      message: 'api plz!'
-    });
-  });
 
 router.route('/api/books')
   .post(function(req, res) {
