@@ -48,4 +48,33 @@ router.route('/books/:book_id')
         res.send(err);
       res.json(book);
     });
+  })
+  .put(function(req, res) {
+    Book.findById(req.params.book_id, function(err, book) {
+      if (err)
+        res.send(err);
+
+      book.title = req.body.title;
+      book.isbn = req.body.isbn;
+      book.author = req.body.author;
+
+      book.save(function(err) {
+        if (err)
+          res.send(err);
+        res.json({
+          message: 'Book updated!'
+        });
+      });
+    });
+  })
+  .delete(function(req, res) {
+    Book.remove({
+      _id: req.params.book_id
+    }, function(err, book) {
+      if (err)
+        res.send(err);
+      res.json({
+        message: 'Successfully deleted'
+      });
+    });
   });
