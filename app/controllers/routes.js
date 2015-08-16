@@ -1,7 +1,7 @@
 var express = require('express'),
   router = express.Router(),
-  mongoose = require('mongoose');
-var passport = require('passport');
+  mongoose = require('mongoose'),
+  passport = require('passport');
 
 module.exports = function(app) {
   app.use('/', router);
@@ -13,9 +13,7 @@ module.exports = function(app) {
   });
 
   router.get('/', function(req, res) {
-    res.json({
-      message: 'Home Page!'
-    });
+    res.sendFile('../public/index.html');
   });
 
   router.route('/login')
