@@ -18,11 +18,12 @@ module.exports = function(app) {
     });
   });
 
-  router.route('/login', function(req, res) {
-    res.json({
-      message: req.flash('loginMessage')
-    });
-  });
+  router.route('/login')
+    .post(passport.authenticate('local-login', {
+      successRedirect: '/profile',
+      failureRedirect: '/login',
+      failureFlash: true
+    }));
 
   router.route('/logout', function(req, res) {
     req.logout();
