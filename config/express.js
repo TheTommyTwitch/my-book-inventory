@@ -7,6 +7,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var methodOverride = require('method-override');
+var passport = require('passport');
+var flash = require('connect-flash');
+var session = require('express-session');
 
 module.exports = function(app, config) {
   var env = process.env.NODE_ENV || 'development';
@@ -23,6 +26,15 @@ module.exports = function(app, config) {
   app.use(compress());
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
+
+  // required for passport
+  require('../config/passport')(passport);
+  app.use(session({
+    secret: 'keepmeprivate'
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use(flash());
 
   var controllers = glob.sync(config.root + '/app/controllers/*.js');
   controllers.forEach(function(controller) {

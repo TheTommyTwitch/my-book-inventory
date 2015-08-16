@@ -1,11 +1,10 @@
-// Example model
-
+var bcrypt = require('bcrypt-nodejs');
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-  name: String,
   email: String,
+  password: String,
   books: Array
 });
 
@@ -14,4 +13,14 @@ UserSchema.virtual('date')
     return this._id.getTimestamp();
   });
 
-mongoose.model('User', UserSchema);
+
+// methods ======================
+UserSchema.methods.generateHash = function(password) {
+  return bcrypt.hashSync(password, bcrypt.getSaltSync(8), null);
+};
+
+UserSchema.methods.validPassword = function(password) {
+  return bcrypt.compareSync(password, this.local.password);
+};
+
+module.exports = mongoose.model('User', UserSchema);
