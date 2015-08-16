@@ -8,7 +8,15 @@ myApp.config(function($stateProvider, $urlRouterProvider) {
   // Now set up the states
   $stateProvider
     .state('home', {
-      url: "/",
-      templateUrl: "../views/home.html"
+      url: '/',
+      templateUrl: '../views/home.html'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: '../views/login.html'
+    })
+    .state('signup', {
+      url: '/signup',
+      templateUrl: '../views/signup.html'
     });
 });
