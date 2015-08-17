@@ -37,7 +37,7 @@ module.exports = function(app) {
 
   router.route('/profile', function(req, res) {
     res.json({
-      user: req.user
+      user: test //req.user
     });
   });
 };
