@@ -12,12 +12,8 @@ router.use(function(req, res, next) {
   next();
 });
 
-router.get('/', function(req, res) {
-  res.json({
-    message: 'Api Page!'
-  });
-});
-
+//===========================================
+//routes for books api=======================
 router.route('/books')
   .post(function(req, res) {
     var book = new Book();
@@ -41,6 +37,8 @@ router.route('/books')
     });
   });
 
+//===========================================
+//routes for individual books api============
 router.route('/books/:book_id')
   .get(function(req, res) {
     Book.findById(req.params.book_id, function(err, book) {

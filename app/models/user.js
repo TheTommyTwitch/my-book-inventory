@@ -2,6 +2,8 @@ var bcrypt = require('bcrypt-nodejs');
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
+//===========================================
+//Schema for new user========================
 var UserSchema = new Schema({
   email: String,
   password: String,
@@ -14,7 +16,8 @@ UserSchema.virtual('date')
   });
 
 
-// methods ======================
+//===========================================
+//methods for passwords======================
 UserSchema.methods.generateHash = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };

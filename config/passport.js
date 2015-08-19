@@ -3,16 +3,22 @@ var User = require('../app/models/user');
 
 module.exports = function(passport) {
 
+  //===========================================
+  //serialize user=============================
   passport.serializeUser(function(user, done) {
     done(null, user.id);
   });
 
+  //===========================================
+  //serialize user=============================
   passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
       done(err, user);
     });
   });
 
+  //===========================================
+  //signup the new user========================
   passport.use('local-signup', new LocalStrategy({
       usernameField: 'email',
       passwordField: 'password',
@@ -45,6 +51,8 @@ module.exports = function(passport) {
       });
     }));
 
+  //===========================================
+  //login returning user=======================
   passport.use('local-login', new LocalStrategy({
       usernameField: 'email',
       passwordField: 'password',

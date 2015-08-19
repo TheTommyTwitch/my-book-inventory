@@ -12,6 +12,8 @@ router.use(function(req, res, next) {
   next();
 });
 
+//===========================================
+//routes for users api=======================
 router.route('/users')
   .get(function(req, res) {
     User.find(function(err, users) {
@@ -21,6 +23,8 @@ router.route('/users')
     });
   });
 
+//===========================================
+//routes for individual users api============
 router.route('/users/:user_id')
   .get(function(req, res) {
     User.findById(req.params.user_id, function(err, user) {
