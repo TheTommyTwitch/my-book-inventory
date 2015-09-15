@@ -1,0 +1,15 @@
+.sideMenu {
+  width: 30%;
+  height: 500px;
+  background-color: red;
+  position: absolute;
+  display: block;
+  z-index: 100;
+  transition: 2s;
+  -webkit-transition: 2s;
+  -moz-transition: 2s;
+  position: absolute;
+  right: calc(100% - 20px); }
+
+.sideMenu:hover {
+  right: 70%; }
