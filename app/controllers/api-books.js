@@ -25,7 +25,7 @@ router.route('/books')
       if (err)
         res.send(err);
       res.json({
-        message: 'Book created!'
+        message: 'Book saved!'
       });
     });
   })

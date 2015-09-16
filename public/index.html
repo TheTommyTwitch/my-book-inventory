@@ -10,13 +10,13 @@
   <div class="sideMenu">
     <div class="bookForm">
       <h3>Add new book!</h3>
-      <form action="">
-        <label for="">Book Name</label>
-        <input type="text">
-        <label for="">Book Author</label>
-        <input type="text">
-        <label for="">Book ISBN</label>
-        <input type="text">
+      <form action="/api/books" enctype="application/x-www-form-urlencoded" method="post">
+        <label for="title">Book Title</label>
+        <input type="text" name="title">
+        <label for="author">Book Author</label>
+        <input type="text" name="author">
+        <label for="isbn">Book ISBN</label>
+        <input type="text" name="isbn">
         <input type="submit">
       </form>
     </div>
