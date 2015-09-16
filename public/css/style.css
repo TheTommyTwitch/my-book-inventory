@@ -1,15 +1,21 @@
 .sideMenu {
-  width: 30%;
-  height: 500px;
-  background-color: red;
+  width: 50%;
+  background-color: aqua;
   position: absolute;
   display: block;
   z-index: 100;
-  transition: 2s;
-  -webkit-transition: 2s;
-  -moz-transition: 2s;
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
   position: absolute;
-  right: calc(100% - 20px); }
+  right: calc(100% - 20px);
+  height: 100%; }
 
 .sideMenu:hover {
-  right: 70%; }
+  right: 50%; }
+
+.bookForm {
+  width: 50%;
+  margin: auto;
+  padding-top: 100px;
+  padding-left: 20px; }

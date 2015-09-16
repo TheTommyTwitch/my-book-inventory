@@ -7,7 +7,20 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body ng-app="myApp">
-  <div class="sideMenu"></div>
+  <div class="sideMenu">
+    <div class="bookForm">
+      <h3>Add new book!</h3>
+      <form action="">
+        <label for="">Book Name</label>
+        <input type="text">
+        <label for="">Book Author</label>
+        <input type="text">
+        <label for="">Book ISBN</label>
+        <input type="text">
+        <input type="submit">
+      </form>
+    </div>
+  </div>
   <div class="container">
     <header ng-include="'views/nav.html'"></header>
     <div ui-view></div>
@@ -22,6 +35,7 @@
   <script src="./js/services/app.js"></script>
   <script src="./js/controllers/homeCtrl.js"></script>
   <script src="./js/scripts/mainScript.js"></script>
+
 
 </body>
 </html>
